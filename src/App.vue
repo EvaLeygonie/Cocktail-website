@@ -1,16 +1,16 @@
 <script>
-  import CitiesList from "./components/CitiesList.vue";
-  import HelloWorld from "./components/HelloWorld.vue";
+  import CocktailsList from "./components/CocktailsList.vue";
+  // import HelloWorld from "./components/HelloWorld.vue";
 
   export default {
     components: {
-      CitiesList,
-      HelloWorld
+      CocktailsList,
+      // HelloWorld
     }
   };
 </script>
 
 <template>
-  <HelloWorld msg="Hello World!" />
-  <CitiesList />
+  <CocktailsList />
+  <!-- <HelloWorld msg="Hello World!" /> -->
 </template>
