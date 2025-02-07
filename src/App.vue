@@ -1,19 +1,19 @@
 <script>
-  import CocktailsList from "./components/CocktailsList.vue";
+  import CocktailRandom from "./components/CocktailRandom.vue";
   import IngredientList from "./components/IngredientList.vue";
   // import HelloWorld from "./components/HelloWorld.vue";
 
   export default {
     components: {
       IngredientList,
-      CocktailsList
+      CocktailRandom
       // HelloWorld
     }
   };
 </script>
 
 <template>
+  <CocktailRandom />
   <IngredientList />
-  <CocktailsList />
   <!-- <HelloWorld msg="Hello World!" /> -->
 </template>

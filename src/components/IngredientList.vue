@@ -28,3 +28,20 @@ import axios from "axios";
     <li v-for="ingredient in ingredients">{{ ingredient.strIngredient1  }}</li>
   </div>
 </template>
+
+<style scoped>
+.ingredient-display {
+  text-align: center;
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  margin: auto;
+}
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+</style>
