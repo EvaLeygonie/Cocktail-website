@@ -2,7 +2,7 @@
 import axios from "axios";
 
   export default {
-    //Kolla Computed!!
+    //Kolla Computed!! + SPA for display
     data() {
     return {
       cocktail: {},
@@ -14,7 +14,7 @@ import axios from "axios";
         const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php");
         this.cocktail = response.data.drinks[0];
       } catch (error) {
-        console.error("Kunde inte hämta drinken:", error);
+        console.error("Could not get drink!", error);
       }
     },
   },
