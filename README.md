@@ -20,13 +20,16 @@ www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka
 
 //=== TODO ===//
 
-- fix ingredient list so it displays only alcohol
-- Sida ingredient search lookup + adapt
+Pages:
 
-//=== GENERAL ===//
+- Watch Axios video
+  fix ingredient list so it displays only alcohol
 
-- Fixa Single page application!!
-- Check out new vite way to write everything
+Structure:
+
+- Go through Vue Courses and save code
+  => Check out new vite way to write everything
+- Fixa SPA!!!
 
 //=== HELP ===//
 CTRL + SHIFT + ´ => open terminal
