@@ -5,6 +5,7 @@ import axios from "axios";
     data() {
     return {
       ingredients: {},
+      // ingredientImages: "www.thecocktaildb.com/images/ingredients/gin.png"
     };
   },
   methods: {
@@ -14,17 +15,27 @@ import axios from "axios";
         this.ingredients = response.data.drinks;
       } catch (error) {
         console.error("Could not get ingredients!", error);
-      }
+      };
     },
+  // async fetchIngredientImage() {
+  //     try {
+  //       const response = await axios.get(`www.thecocktaildb.com/images/ingredients/gin.png/preview`);
+  //       console.log(this.ingredientsImages = response);
+  //     } catch (error) {
+  //       console.error("Could not get images!", error);
+  //     };
+  //   },
   },
   mounted() {
-    this.fetchIngredient();
-  },
+    this.fetchIngredient()
+    // this.fetchIngredientImage();
+  }
 };
 </script>
 
 <template>
   <div class="ingredient-display">
+    <!-- <img alt="" :src="ingredientImages" /> -->
     <li v-for="ingredient in ingredients">{{ ingredient.strIngredient1  }}</li>
   </div>
 </template>
