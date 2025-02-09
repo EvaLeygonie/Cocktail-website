@@ -1,25 +1,3 @@
-<template>
-  <div class="container">
-    <h2>Välj en alkoholtyp</h2>
-    <select v-model="selectedAlcohol" @change="fetchDrinks">
-      <option disabled value="">Välj en</option>
-      <option v-for="alcohol in alcoholList" :key="alcohol.strIngredient1" :value="alcohol.strIngredient1">
-        {{ alcohol.strIngredient1 }}
-      </option>
-    </select>
-
-    <div v-if="drinks.length > 0">
-      <h3>Drinkar med {{ selectedAlcohol }}</h3>
-      <ul>
-        <li v-for="drink in drinks" :key="drink.idDrink">
-          <img :src="drink.strDrinkThumb" :alt="drink.strDrink" width="100">
-          {{ drink.strDrink }}
-        </li>
-      </ul>
-    </div>
-  </div>
-</template>
-
 <script>
 import axios from "axios";
 
@@ -55,6 +33,28 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="container">
+    <h2>Välj en alkoholtyp</h2>
+    <select v-model="selectedAlcohol" @change="fetchDrinks">
+      <option disabled value="">Välj en</option>
+      <option v-for="alcohol in alcoholList" :key="alcohol.strIngredient1" :value="alcohol.strIngredient1">
+        {{ alcohol.strIngredient1 }}
+      </option>
+    </select>
+
+    <div v-if="drinks.length > 0">
+      <h3>Drinkar med {{ selectedAlcohol }}</h3>
+      <ul>
+        <li v-for="drink in drinks" :key="drink.idDrink">
+          <img :src="drink.strDrinkThumb" :alt="drink.strDrink" width="100">
+          {{ drink.strDrink }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .container {

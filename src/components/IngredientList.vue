@@ -9,7 +9,7 @@ import axios from "axios";
     };
   },
   methods: {
-    async fetchIngredient() {
+    async fetchIngredients() {
       try {
         const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list");
         this.ingredients = response.data.drinks;
@@ -17,25 +17,15 @@ import axios from "axios";
         console.error("Could not get ingredients!", error);
       };
     },
-  // async fetchIngredientImage() {
-  //     try {
-  //       const response = await axios.get(`www.thecocktaildb.com/images/ingredients/gin.png/preview`);
-  //       console.log(this.ingredientsImages = response);
-  //     } catch (error) {
-  //       console.error("Could not get images!", error);
-  //     };
-  //   },
   },
   mounted() {
-    this.fetchIngredient()
-    // this.fetchIngredientImage();
+    this.fetchIngredients()
   }
 };
 </script>
 
 <template>
   <div class="ingredient-display">
-    <!-- <img alt="" :src="ingredientImages" /> -->
     <li v-for="ingredient in ingredients">{{ ingredient.strIngredient1  }}</li>
   </div>
 </template>
