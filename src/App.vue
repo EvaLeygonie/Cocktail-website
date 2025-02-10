@@ -1,13 +1,26 @@
 <script>
-  import CocktailRandom from "./components/CocktailRandom.vue";
+  // import CocktailRandom from "./components/CocktailRandom.vue";
 
   export default {
     components: {
-      CocktailRandom,
+      // CocktailRandom,
     }
   };
 </script>
 
 <template>
-  <CocktailRandom />
+  <nav>
+  <ul>
+    <li>
+      <RouterLink to="/">Randomize</RouterLink>
+    </li>
+    <li>
+      <RouterLink to="/search">Search drink</RouterLink>
+    </li>
+  </ul>
+</nav>
+
+<main>
+  <RouterView />
+</main>
 </template>

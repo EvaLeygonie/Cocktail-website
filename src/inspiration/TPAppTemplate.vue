@@ -1,6 +1,7 @@
 <script>
   import CitiesList from "./components/CitiesList.vue";
   import HelloWorld from "./components/HelloWorld.vue";
+
   export default {
     components: {
       CitiesList,
@@ -8,6 +9,7 @@
     }
   };
 </script>
+
 <template>
   <HelloWorld msg="Hello World!" />
   <CitiesList />

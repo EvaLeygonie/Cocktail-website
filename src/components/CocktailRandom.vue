@@ -1,11 +1,3 @@
-<template>
-  <div class="cocktail-card">
-    <h2>{{ cocktail.strDrink }}</h2>
-    <img v-if="cocktail.strDrinkThumb" :src="cocktail.strDrinkThumb" :alt="cocktail.strDrink">
-    <button @click="fetchDrink">Hämta ny drink</button>
-  </div>
-</template>
-
 <script>
 import axios from "axios";
 
@@ -30,6 +22,15 @@ import axios from "axios";
   },
 };
 </script>
+
+<template>
+  <div class="cocktail-card">
+    <h2>{{ cocktail.strDrink }}</h2>
+    <img v-if="cocktail.strDrinkThumb" :src="cocktail.strDrinkThumb" :alt="cocktail.strDrink">
+    <button @click="fetchDrink">Randomize</button>
+    <button><RouterLink to="/details">Recipe</RouterLink></button>
+  </div>
+</template>
 
 <style scoped>
 .cocktail-card {
