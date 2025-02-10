@@ -20,16 +20,21 @@ www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka
 
 //=== TODO ===//
 
-Pages:
-
-- Watch Axios video
-  fix ingredient list so it displays only alcohol
-
-Structure:
-
-- Go through Vue Courses and save code
-  => Check out new vite way to write everything
-- Fixa SPA!!!
+- Add Router link to details button on both views
 
 //=== HELP ===//
 CTRL + SHIFT + ´ => open terminal
+
+Router link to details:
+<RouterLink to="/details">Recipe</RouterLink>
+
+- fix special link to id or name
+
+//=== COLORS ===//
+#C6DCBA
+#B5828C
+#E5989B
+#FFB4A2
+#FFCDB2
+#FCE5CA
+#1B1B1B

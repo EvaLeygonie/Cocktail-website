@@ -9,16 +9,13 @@
 </script>
 
 <template>
-  <nav>
-  <ul>
-    <li>
+
+    <nav>
       <RouterLink to="/">Randomize</RouterLink>
-    </li>
-    <li>
+      <h1>Cocktails!</h1>
       <RouterLink to="/search">Search drink</RouterLink>
-    </li>
-  </ul>
-</nav>
+    </nav>
+
 
 <main>
   <RouterView />

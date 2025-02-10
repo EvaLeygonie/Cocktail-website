@@ -28,30 +28,19 @@ import axios from "axios";
     <h2>{{ cocktail.strDrink }}</h2>
     <img v-if="cocktail.strDrinkThumb" :src="cocktail.strDrinkThumb" :alt="cocktail.strDrink">
     <button @click="fetchDrink">Randomize</button>
-    <button><RouterLink to="/details">Recipe</RouterLink></button>
+    <button><RouterLink to="/details">See Recipe</RouterLink></button>
   </div>
 </template>
 
 <style scoped>
 .cocktail-card {
   text-align: center;
-  border: 2px solid #ccc;
-  padding: 20px;
-  border-radius: 10px;
+  border: 2px solid #E5989B;
+  background: #FFB4A2;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   width: 300px;
   margin: auto;
-}
-img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin: 10px 0;
-}
-button {
-  padding: 10px 15px;
-  background-color: #ff5733;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 </style>
