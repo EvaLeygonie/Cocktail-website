@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A database where you can search for magic cards">
+  <title>Magic the Gathering - Card database</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="CSS/style.css" rel="Stylesheet">
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <img class="logo_nav" src="CSS/LOGO-MAGIC.png" alt="Magic the Gathering logo">
+    </a>
+    <nav>
+      <a href="cities.html">Cities</a>
+      <a href="index.html">Introduction</a>
+      <a href="cards.html">Cards</a>
+      <a href="favorites.html">
+        <img class="favorites_icon" src="CSS/heart.svg" alt="Heart icon">
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Magic: the Gathering</h1>
+    <h1>Card database</h1>
+
+    <form class="filter_bar">
+      <div id="card_colors_filter">
+        <b>Card Color:</b>
+        <input type="checkbox" value="B">
+        <label for="black">Black</label>
+        <input type="checkbox" value="R">
+        <label for="red">Red</label>
+        <input type="checkbox" value="G">
+        <label for="green">Green</label>
+        <input type="checkbox" value="U">
+        <label for="blue">Blue</label>
+        <input type="checkbox" value="W">
+        <label for="white">White</label>
+      </div>
+
+      <select id="card_type_filter">
+        <option value="">Card Type</option>
+        <option value="creature">Creature</option>
+        <option value="sorcery">Sorcery</option>
+        <option value="instant">Instant</option>
+        <option value="enchantment">Enchantment</option>
+        <option value="artifact">Artifact</option>
+        <option value="planeswalker">Planeswalker</option>
+      </select>
+
+      <input type="text" id="search_card" placeholder="Card name">
+      <input type="submit" value="Search">
+
+    </form>
+
+    <section class="cards">
+      <div id="card_list"></div>
+    </section>
+
+  </main>
+
+  <script src="cards.js"></script>
+</body>
+
+</html>

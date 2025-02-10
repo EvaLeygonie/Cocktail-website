@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An introduction to magic the gathering and the different types of cards">
+  <title>Magic the Gathering - Introduction</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="CSS/style.css" rel="Stylesheet">
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <img id="logo_nav" src="CSS/LOGO-MAGIC.png" alt="Magic the Gathering logo">
+    </a>
+    <nav>
+      <a href="cities.html">Cities</a>
+      <a href="index.html">Introduction</a>
+      <a href="cards.html">Cards</a>
+      <a href="favorites.html">
+        <img class="favorites_icon" src="CSS/heart.svg" alt="Heart icon">
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Introduction</h1>
+
+    <div id="magic_introduction">
+      <h2>Welcome to the World of Magic: The Gathering!</h2>
+      <p>Magic: The Gathering is a fantasy-themed collectible card game created in 1993 by Richard Garfield and
+        published by Wizards of the Coast. It combines strategy, creativity, and skill as players take on the role of
+        powerful wizards called "Planeswalkers," summoning creatures, casting spells, and battling for victory across
+        the Multiverse. With thousands of unique cards and endless gameplay possibilities, Magic offers something for
+        every kind of player, whether you're a casual gamer or a competitive strategist. Dive into the cards, explore
+        the lore, and discover your own path to greatness!</p>
+    </div>
+
+    <div id="magic_colors">
+      <h2>Colors:</h2>
+    </div>
+
+    <div id="magic_card_types">
+      <h2>Card Types:</h2>
+      <a href="cards.html?types=creature">
+        <button value="creature">Creatures</button>
+      </a>
+      <a href="cards.html?types=sorcery">
+        <button value="sorcery">Sorceries</button>
+      </a>
+      <a href="cards.html?types=instant">
+        <button value="instant">Instants</button>
+      </a>
+      <a href="cards.html?types=enchantment">
+        <button value="enchantment">Enchantments</button>
+      </a>
+      <a href="cards.html?types=artifact">
+        <button value="artifact">Artifacts</button>
+      </a>
+      <a href="cards.html?types=planeswalker">
+        <button value="planeswalker">Planeswalkers</button>
+      </a>
+    </div>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
