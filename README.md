@@ -31,10 +31,10 @@ Router link to details:
 - fix special link to id or name
 
 //=== COLORS ===//
-#C6DCBA
-#B5828C
-#E5989B
-#FFB4A2
-#FFCDB2
-#FCE5CA
-#1B1B1B
+#C6DCBA - rgba(198, 220, 186, 0.5)
+#B5828C - rgba(181, 130, 140, 0.5)
+#E5989B - rgba(229, 152, 155, 0.5)
+#FFB4A2 - rgba(255, 180, 162, 0.5)
+#FFCDB2 - rgba(255, 205, 178, 0.5)
+#FCE5CA - rgba(252, 229, 202, 0.5)
+#1B1B1B - rgba(0, 0, 0, 0.5);

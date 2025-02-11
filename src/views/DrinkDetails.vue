@@ -1,5 +1,5 @@
 <script>
-  // import CitiesList from "./components/CitiesList.vue";
+  // import CitiesList from "../components/CitiesList.vue";
 
   export default {
     components: {

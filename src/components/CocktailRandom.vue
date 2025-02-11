@@ -8,7 +8,7 @@ import axios from "axios";
     };
   },
   methods: {
-    async fetchDrink() {
+    async randomizeDrink() {
       try {
         const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php");
         this.cocktail = response.data.drinks[0];
@@ -18,13 +18,13 @@ import axios from "axios";
     },
   },
   mounted() {
-    this.fetchDrink();
+    this.randomizeDrink();
   },
 };
 </script>
 
 <template>
-  <div class="cocktail-card">
+  <div class="drink-card">
     <h2>{{ cocktail.strDrink }}</h2>
     <img v-if="cocktail.strDrinkThumb" :src="cocktail.strDrinkThumb" :alt="cocktail.strDrink">
     <button @click="fetchDrink">Randomize</button>
@@ -33,14 +33,14 @@ import axios from "axios";
 </template>
 
 <style scoped>
-.cocktail-card {
-  text-align: center;
-  border: 2px solid #E5989B;
-  background: #FFB4A2;
-  padding: 10px 20px;
-  border-radius: 20px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  width: 300px;
-  margin: auto;
-}
+  .drink-card {
+    text-align: center;
+    border: 2px solid #C6DCBA;
+    background:rgba(255, 205, 178, 0.5);
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    width: 30vw;
+    margin: auto;
+  }
 </style>

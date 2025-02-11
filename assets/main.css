@@ -31,13 +31,14 @@ nav {
   justify-content: space-around;
   height: 100px;
   margin-bottom: 20px;
+  background-color: rgba(237, 230, 219, 0.5);;
 
   a {
     font-family: TitleFont, serif;
     font-weight: 700;
     color: #1B1B1B;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.7em;
     padding: 0 20px;
   }
 }
@@ -74,15 +75,16 @@ img {
 button {
   margin: 5px 10px;
   padding: 10px 15px;
-  background-color: #C6DCBA;
+  background-color: rgba(181, 130, 140, 0.7);
   color: #1B1B1B;
   font-weight: 600;
   font-size: 1.1em;
   border:  none;
   border-radius: 15px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
   a {
-    color: #1B1B1B;
     text-decoration: none;
+    color: #1B1B1B;
   }
 }

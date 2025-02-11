@@ -1,13 +1,16 @@
 <script>
-  // import CitiesList from "./components/CitiesList.vue";
+  import SearchDrink from "../components/SearchDrink.vue";
+  import LoadDrinkDisplay from "../components/LoadDrinkDisplay.vue";
 
   export default {
     components: {
-      // CitiesList,
+      SearchDrink,
+      LoadDrinkDisplay,
     }
   };
 </script>
 
 <template>
-  <!-- <CitiesList /> -->
+  <SearchDrink />
+  <LoadDrinkDisplay />
 </template>
