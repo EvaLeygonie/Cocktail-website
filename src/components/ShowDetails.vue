@@ -2,6 +2,7 @@
 import axios from "axios"
 
   export default {
+    props: {drinkId: String},
     computed: {
       ingredientList(){
         const list = []
@@ -16,32 +17,40 @@ import axios from "axios"
     },
     data() {
     return {
+      id: this.drinkId,
       cocktail: {},
       ingredientName: [],
       ingredientMeasure: [],
     }
   },
-  methods: {
-    async randomizeDrink() {
-      try {
-        const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-        this.cocktail = response.data.drinks[0]
+    methods: {
+      async drinkDetails() {
+        try {
+          const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${this.id}`)
+          this.cocktail = response.data.drinks[0]
 
-        const ingredients = Object.keys(this.cocktail).filter(key => key.startsWith("strIngredient")).map(value => this.cocktail[value])
-        this.ingredientName = Object.values(ingredients).filter(Boolean)
+          const ingredients = Object.keys(this.cocktail).filter(key => key.startsWith("strIngredient")).map(value => this.cocktail[value])
+          this.ingredientName = Object.values(ingredients).filter(Boolean)
 
-        const measure = Object.keys(this.cocktail).filter(key => key.startsWith("strMeasure")).map(value => this.cocktail[value])
-        this.ingredientMeasure = Object.values(measure).filter(Boolean)
+          const measure = Object.keys(this.cocktail).filter(key => key.startsWith("strMeasure")).map(value => this.cocktail[value])
+          this.ingredientMeasure = Object.values(measure).filter(Boolean)
 
-      } catch (error) {
-        console.error("Could not get drink!", error)
+        } catch (error) {
+          console.error("Could not get drink!", error)
+        }
       }
     },
-  },
-  mounted() {
-    this.randomizeDrink()
-  },
-}
+    updated() {
+      if(this.drinkId !== this.id){
+        this.id = this.drinkId
+        console.log(this.drinkId, this.id)
+        this.drinkDetails()
+      }
+    },
+    created() {
+      this.drinkDetails()
+    },
+  }
 </script>
 
 <template>
@@ -58,7 +67,6 @@ import axios from "axios"
     </ul>
     <h3>Instructions:</h3>
     <p>{{ cocktail.strInstructions }}</p>
-    <button @click="randomizeDrink">Randomize</button>
     </div>
   </div>
 </template>

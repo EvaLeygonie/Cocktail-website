@@ -88,3 +88,37 @@ button {
     color: #1B1B1B;
   }
 }
+
+.recipe-card {
+  display: flex;
+  text-align: center;
+  border: 2px solid #C6DCBA;
+  background:rgba(255, 205, 178, 0.5);
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  width: 80vw;
+  margin: auto;
+}
+
+.drink-image {
+  text-align: center;
+  margin-right: 40px;
+  width: 40vw;
+}
+
+.drink-recipe {
+  text-align: left;
+  width: 35vw;
+  p {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  h2 {
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+  h3 {
+    margin: 20px 0px 10px 0px;
+  }
+}

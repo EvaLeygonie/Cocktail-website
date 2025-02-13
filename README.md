@@ -45,3 +45,7 @@ Object.values(obs)
 => Array [ null, "socker" ]
 Object.values(obs).filter(Boolean)
 => Array [ "socker" ]
+
+<form :style="{ color: formError ? 'firebrick' : 'black' }">
+  ...
+</form>

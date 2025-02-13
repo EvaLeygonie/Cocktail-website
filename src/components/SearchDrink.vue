@@ -1,13 +1,19 @@
 <script>
 import axios from "axios"
+import ShowDetails from "../components/ShowDetails.vue"
 
   export default {
+    components: {
+      ShowDetails,
+    },
     data() {
     return {
       drinks: [],
       drinkSearch: "",
       drinkResult: [],
       search: false,
+      details: false,
+      drinkId: "",
     }
   },
   methods: {
@@ -20,6 +26,10 @@ import axios from "axios"
       } catch (error) {
         console.error("Could not get drink!", error)
       }
+    },
+    showDetails(id) {
+        this.details = true
+        this.drinkId = id
     },
   },
   async created() {
@@ -40,25 +50,30 @@ import axios from "axios"
   <input type="submit" @click="searchDrink" id="search_button" value="Search">
   </div>
 
+  <div v-if="details">
+      <ShowDetails :drinkId="drinkId"></ShowDetails>
+    </div>
+
   <div v-if="search" class="drinks-grid">
     <div class="drink-card" v-for="drink in drinkResult">
       <h3>{{ drink.strDrink }}</h3>
       <img :src="drink.strDrinkThumb" :alt="drink.strDrink" />
-      <button>See Recipe</button>
+      <button @click="showDetails(drink.idDrink)">See Recipe</button>
     </div>
   </div>
+
   <div v-else class="drinks-grid">
     <div class="drink-card" v-for="drink in drinks" :key="drink.idDrink">
       <h3>{{ drink.strDrink }}</h3>
       <img :src="drink.strDrinkThumb" :alt="drink.strDrink" />
-      <button>See Recipe</button>
+      <button @click="showDetails(drink.idDrink)">See Recipe</button>
     </div>
   </div>
 </template>
 
 <style scoped>
   #search_bar{
-    margin-top: 30px;
+    margin: 30px 0px;
     text-align: center;
     padding: 5px
   }
