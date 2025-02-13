@@ -24,7 +24,7 @@ import axios from "axios"
 </script>
 
 <template>
-  <div class="drink-card">
+  <div class="drink-card-random">
     <h2>{{ cocktail.strDrink }}</h2>
     <img v-if="cocktail.strDrinkThumb" :src="cocktail.strDrinkThumb" :alt="cocktail.strDrink">
     <button @click="randomizeDrink">Randomize</button>
@@ -33,7 +33,7 @@ import axios from "axios"
 </template>
 
 <style scoped>
-  .drink-card {
+  .drink-card-random {
     text-align: center;
     border: 2px solid #C6DCBA;
     background:rgba(255, 205, 178, 0.5);

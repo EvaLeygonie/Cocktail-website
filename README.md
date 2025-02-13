@@ -38,6 +38,3 @@ Router link to details:
 #FFCDB2 - rgba(255, 205, 178, 0.5)
 #FCE5CA - rgba(252, 229, 202, 0.5)
 #1B1B1B - rgba(0, 0, 0, 0.5);
-
-//=== v-model ===//
-Add drink name into form input to send to axios

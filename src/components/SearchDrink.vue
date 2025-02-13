@@ -1,36 +1,43 @@
 <script>
 import axios from "axios"
 
-//   export default {
-//     data() {
-//     return {
-//       drinkName: {},
-//     }
-//   },
-//   methods: {
-//     async fetchDrink() {
-//       try {
-//         const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-//         this.cocktail = response.data.drinks[0]
-//       } catch (error) {
-//         console.error("Could not get drink!", error)
-//       }
-//     },
-//   },
-//   mounted() {
-//     this.fetchDrink()
-//   },
-// }
+  export default {
+    data() {
+    return {
+      drinkSearch: "",
+      drinkResult: [],
+      search: false,
+    }
+  },
+  methods: {
+    async searchDrink() {
+      try {
+        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.drinkSearch}`)
+        this.drinkResult = response.data.drinks
+        this.search = true
+        this.drinkSearch = ""
+      } catch (error) {
+        console.error("Could not get drink!", error)
+      }
+    },
+  },
+}
 </script>
 
 <template>
   <div id="search_bar">
-  <input v-model="drinkName" id="drink_name" placeholder="Drink name">
-  <input type="submit" id="search_button" value="Search">
-</div>
-<div id="search_filters">
+    <!-- <div id="search_filters"></div> -->
+  <input v-model="drinkSearch" id="drink_name" placeholder="Drink name">
+  <input type="submit" @click="searchDrink" id="search_button" value="Search">
+  </div>
 
-</div>
+  <div v-if="search" class="drinks-grid">
+    <div class="drink-card" v-for="drink in drinkResult">
+      <h3>{{ drink.strDrink }}</h3>
+      <img :src="drink.strDrinkThumb" :alt="drink.strDrink" />
+      <button>See Recipe</button>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -66,5 +73,21 @@ import axios from "axios"
     border-radius: 15px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+  }
+
+  .drinks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 30px 20px;
+    gap: 15px;
+  }
+
+  .drink-card {
+    text-align: center;
+    border: 2px solid #C6DCBA;
+    background:rgba(255, 205, 178, 0.5);
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   }
 </style>
