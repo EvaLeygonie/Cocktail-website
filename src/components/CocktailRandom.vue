@@ -1,34 +1,34 @@
 <script>
-import axios from "axios";
+import axios from "axios"
 
   export default {
     data() {
     return {
       cocktail: {},
-    };
+    }
   },
   methods: {
     async randomizeDrink() {
       try {
-        const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php");
-        this.cocktail = response.data.drinks[0];
+        const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+        this.cocktail = response.data.drinks[0]
       } catch (error) {
-        console.error("Could not get drink!", error);
+        console.error("Could not get drink!", error)
       }
     },
   },
   mounted() {
-    this.randomizeDrink();
+    this.randomizeDrink()
   },
-};
+}
 </script>
 
 <template>
   <div class="drink-card">
     <h2>{{ cocktail.strDrink }}</h2>
     <img v-if="cocktail.strDrinkThumb" :src="cocktail.strDrinkThumb" :alt="cocktail.strDrink">
-    <button @click="fetchDrink">Randomize</button>
-    <button><RouterLink to="/details">See Recipe</RouterLink></button>
+    <button @click="randomizeDrink">Randomize</button>
+    <button>See Recipe</button>
   </div>
 </template>
 

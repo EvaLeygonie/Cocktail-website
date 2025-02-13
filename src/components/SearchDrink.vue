@@ -1,31 +1,31 @@
 <script>
-import axios from "axios";
+import axios from "axios"
 
 //   export default {
 //     data() {
 //     return {
-//       cocktailName: {},
-//     };
+//       drinkName: {},
+//     }
 //   },
 //   methods: {
 //     async fetchDrink() {
 //       try {
-//         const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php");
-//         this.cocktail = response.data.drinks[0];
+//         const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+//         this.cocktail = response.data.drinks[0]
 //       } catch (error) {
-//         console.error("Could not get drink!", error);
+//         console.error("Could not get drink!", error)
 //       }
 //     },
 //   },
 //   mounted() {
-//     this.fetchDrink();
+//     this.fetchDrink()
 //   },
-// };
+// }
 </script>
 
 <template>
   <div id="search_bar">
-  <input type="text" id="drink_name" placeholder="Drink name">
+  <input v-model="drinkName" id="drink_name" placeholder="Drink name">
   <input type="submit" id="search_button" value="Search">
 </div>
 <div id="search_filters">
@@ -49,8 +49,11 @@ import axios from "axios";
     border:  none;
     border-radius: 15px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
   }
+
+  #drink_name:focus {
+  outline: 2px solid rgba(181, 130, 140, 0.7);
+}
 
   #search_button {
     margin: 5px 10px;
