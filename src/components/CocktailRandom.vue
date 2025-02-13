@@ -53,9 +53,12 @@ import axios from "axios"
   </div>
   <div class="drink-recipe">
     <h2>{{ cocktail.strDrink }}</h2>
+    <p><em>{{ cocktail.strAlcoholic }}</em></p>
+    <h3>Ingredients:</h3>
     <ul>
       <li v-for="ingredient in ingredientList"><strong>{{ ingredient.name }}</strong> - {{ ingredient.measure }}</li>
     </ul>
+    <h3>Instructions:</h3>
     <p>{{ cocktail.strInstructions }}</p>
     <button @click="randomizeDrink">Randomize</button>
     </div>
@@ -83,14 +86,17 @@ import axios from "axios"
 
   .drink-recipe {
     text-align: left;
-    width: 30vw;
+    width: 35vw;
     p {
       text-align: left;
-      margin: 30px 0px;
+      margin-bottom: 20px;
     }
     h2 {
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       margin-top: 15px;
+    }
+    h3 {
+      margin: 20px 0px 10px 0px;
     }
   }
 </style>
