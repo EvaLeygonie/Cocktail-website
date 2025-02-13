@@ -1,16 +1,13 @@
 <script>
-  import SearchDrink from "../components/SearchDrink.vue";
-  // import LoadDrinkDisplay from "../components/LoadDrinkDisplay.vue";
+  import SearchDrink from "../components/SearchDrink.vue"
 
   export default {
     components: {
       SearchDrink,
-      // LoadDrinkDisplay,
     }
   };
 </script>
 
 <template>
   <SearchDrink />
-  <!-- <LoadDrinkDisplay /> -->
 </template>

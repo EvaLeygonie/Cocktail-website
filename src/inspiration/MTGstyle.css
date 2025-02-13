@@ -186,8 +186,8 @@ input {
 }
 
 #chart_stats {
-  text-align: center;
   float: left;
+  text-align: center;
   width: 40vw;
 }
 

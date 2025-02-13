@@ -4,6 +4,7 @@ import axios from "axios"
   export default {
     data() {
     return {
+      drinks: [],
       drinkSearch: "",
       drinkResult: [],
       search: false,
@@ -21,6 +22,14 @@ import axios from "axios"
       }
     },
   },
+  async created() {
+    try {
+      const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
+      this.drinks = response.data.drinks.slice(0, 12)
+    } catch (error) {
+      console.error("Could not get drink list!", error)
+    }
+  }
 }
 </script>
 
@@ -33,6 +42,13 @@ import axios from "axios"
 
   <div v-if="search" class="drinks-grid">
     <div class="drink-card" v-for="drink in drinkResult">
+      <h3>{{ drink.strDrink }}</h3>
+      <img :src="drink.strDrinkThumb" :alt="drink.strDrink" />
+      <button>See Recipe</button>
+    </div>
+  </div>
+  <div v-else class="drinks-grid">
+    <div class="drink-card" v-for="drink in drinks" :key="drink.idDrink">
       <h3>{{ drink.strDrink }}</h3>
       <img :src="drink.strDrinkThumb" :alt="drink.strDrink" />
       <button>See Recipe</button>
