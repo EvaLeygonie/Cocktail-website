@@ -12,19 +12,34 @@ import ShowDetails from "../components/ShowDetails.vue"
       drinkSearch: "",
       details: false,
       drinkId: "",
-      isAlcoholic: null,
+      selectedAlcohol: "",
+      alcoholOptions: ["Gin", "Vodka", "Tequila", "Sweet Vermouth", "Light Rum", "Whiskey", "Brandy", "Triple sec", "Scotch", "Champagne", "Wine"],
     }
   },
   methods: {
     async searchDrink() {
       try {
+        let response
         if (this.drinkSearch.trim() === "") {
-          const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
-          this.drinks = response.data.drinks.slice(0, 12)
+          response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
         } else {
-          const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.drinkSearch}`)
-          this.drinks = response.data.drinks
+          response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.drinkSearch}`)
         }
+        let allDrinks = response.data.drinks || []
+
+        if (this.selectedAlcohol) {
+          allDrinks = allDrinks.filter(drink => {
+            for (let i = 0; i < 15; i++) {
+              let ingredient = drink[`strIngredient${i}`]
+              if (ingredient && ingredient.toLowerCase() === this.selectedAlcohol.toLowerCase()) {
+                return true
+              }
+            }
+            return false
+          })
+        }
+
+        this.drinks = allDrinks.slice(0, 12)
         this.details= false
         this.drinkSearch = ""
       } catch (error) {
@@ -50,6 +65,10 @@ import ShowDetails from "../components/ShowDetails.vue"
 <template>
   <div id="search_bar">
   <input v-model="drinkSearch" id="drink_name" placeholder="Drink name">
+  <select v-model="selectedAlcohol" id="alcohol_filter">
+    <option value="">Select Alcohol</option>
+    <option v-for="option in alcoholOptions" :key="option" :value="option">{{ option }}</option>
+  </select>
   <input type="submit" @click="searchDrink" id="search_button" value="Search">
   </div>
 
@@ -85,8 +104,19 @@ import ShowDetails from "../components/ShowDetails.vue"
   }
 
   #drink_name:focus {
-  outline: 2px solid rgba(181, 130, 140, 0.7);
-}
+  outline:  2px solid rgba(181, 130, 140, 0.7);
+  }
+
+  #alcohol_filter {
+    margin-left: 10px;
+    padding: 5px 15px;
+    background-color: rgba(252, 229, 202, 0.8);
+    border-radius: 10px;
+    font-size: 1.1em;
+    border:  none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
 
   #search_button {
     margin: 5px 10px;
