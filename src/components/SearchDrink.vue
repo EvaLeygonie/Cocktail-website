@@ -10,10 +10,9 @@ import ShowDetails from "../components/ShowDetails.vue"
     return {
       drinks: [],
       drinkSearch: "",
-      drinkResult: [],
-      search: false,
       details: false,
       drinkId: "",
+      isAlcoholic: null,
     }
   },
   methods: {
@@ -21,12 +20,11 @@ import ShowDetails from "../components/ShowDetails.vue"
       try {
         if (this.drinkSearch.trim() === "") {
           const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
-          this.drinkResult = response.data.drinks.slice(0, 12)
+          this.drinks = response.data.drinks.slice(0, 12)
         } else {
           const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.drinkSearch}`)
-          this.drinkResult = response.data.drinks
+          this.drinks = response.data.drinks
         }
-        this.search = true
         this.details= false
         this.drinkSearch = ""
       } catch (error) {
@@ -51,7 +49,6 @@ import ShowDetails from "../components/ShowDetails.vue"
 
 <template>
   <div id="search_bar">
-    <!-- <div id="search_filters"></div> -->
   <input v-model="drinkSearch" id="drink_name" placeholder="Drink name">
   <input type="submit" @click="searchDrink" id="search_button" value="Search">
   </div>
@@ -60,15 +57,7 @@ import ShowDetails from "../components/ShowDetails.vue"
       <ShowDetails :drinkId="drinkId"></ShowDetails>
     </div>
 
-  <div v-if="search" class="drinks-grid">
-    <div class="drink-card" v-for="drink in drinkResult">
-      <h3>{{ drink.strDrink }}</h3>
-      <img :src="drink.strDrinkThumb" :alt="drink.strDrink" />
-      <button @click="showDetails(drink.idDrink)">See Recipe</button>
-    </div>
-  </div>
-
-  <div v-else class="drinks-grid">
+  <div class="drinks-grid">
     <div class="drink-card" v-for="drink in drinks" :key="drink.idDrink">
       <h3>{{ drink.strDrink }}</h3>
       <img :src="drink.strDrinkThumb" :alt="drink.strDrink" />

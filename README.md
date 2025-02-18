@@ -14,7 +14,7 @@ https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007
 https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list
 => Show only alcoholic drinks!!
 
-Specifik ingredient:
+Specific ingredient:
 www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka
 => Find ingredient name
 
