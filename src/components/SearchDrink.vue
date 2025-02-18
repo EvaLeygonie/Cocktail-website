@@ -19,9 +19,15 @@ import ShowDetails from "../components/ShowDetails.vue"
   methods: {
     async searchDrink() {
       try {
-        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.drinkSearch}`)
-        this.drinkResult = response.data.drinks
+        if (this.drinkSearch.trim() === "") {
+          const response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
+          this.drinkResult = response.data.drinks.slice(0, 12)
+        } else {
+          const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.drinkSearch}`)
+          this.drinkResult = response.data.drinks
+        }
         this.search = true
+        this.details= false
         this.drinkSearch = ""
       } catch (error) {
         console.error("Could not get drink!", error)

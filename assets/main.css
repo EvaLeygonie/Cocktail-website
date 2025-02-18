@@ -3,7 +3,6 @@
 }
 
 body {
-  /* background: #FFCDB2; */
   background: linear-gradient(90deg,  #B5828C, #E5989B, #FFB4A2, #FFCDB2, #C6DCBA);
   font-family: MyFont, sans-serif;
 }
@@ -31,7 +30,7 @@ nav {
   justify-content: space-around;
   height: 100px;
   margin-bottom: 20px;
-  background-color: rgba(237, 230, 219, 0.5);;
+  background-color: rgba(237, 230, 219, 0.5);
 
   a {
     font-family: TitleFont, serif;
